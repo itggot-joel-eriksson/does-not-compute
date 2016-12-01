@@ -1,0 +1,18 @@
+#! /usr/bin/env ruby
+
+system "cls" or system "clear"
+
+require "gosu"
+
+require_relative "./lib/does-not-compute"
+
+Dir.glob("./lib/models/**.rb").each do |model|
+    require_relative model
+end
+
+Dir.glob("./lib/models/vehicles/**.rb").each do |vehicle|
+    require_relative vehicle
+end
+
+game_window = DoesNotComputeGame.new
+game_window.show
